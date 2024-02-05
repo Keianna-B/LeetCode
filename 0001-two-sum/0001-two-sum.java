@@ -13,12 +13,13 @@ class Solution {
                     //Store the indexes in sum
                     sum[0] = i;
                     sum[1] = j;
-                    //return sum
+                    //return sum when found
                     return sum;
                 }   
 
             } 
         }
+        //no solution found
         return sum;
     }
 }
