@@ -8,7 +8,7 @@ class Solution {
                 palindrome = word.charAt(i) + palindrome;
             }
             if(palindrome.compareTo(word) == 0){
-                break;
+                return palindrome;
             }
             else{
                 palindrome = "";
