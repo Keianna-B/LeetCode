@@ -1,33 +1,29 @@
 class Solution {
     public boolean judgeCircle(String moves) {
         boolean atOrigin = false;
-        int rCount = 0;
-        int lCount = 0;
-        int uCount = 0;
-        int dCount = 0;
-        char move;
+        int x = 0;
+        int y = 0;
 
         for(int i = 0; i < moves.length(); i++){
-            move = moves.charAt(i);
-            switch(move){
+            switch(moves.charAt(i)){
                 case 'U':
-                    uCount++;
+                    y++;
                     break;
                 case 'D':
-                    dCount++;
+                    y--;
                     break;
                 case 'L':
-                    lCount++;
+                    y--;
                     break;
                 case 'R':
-                    rCount++;
+                    x++;
                     break;
                 default:
                     break;
             }
         }
 
-        if(rCount == lCount && uCount == dCount)
+        if(x == 0 && y == 0)
         {
             atOrigin = true;
         }
