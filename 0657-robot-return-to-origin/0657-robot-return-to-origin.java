@@ -9,32 +9,24 @@ class Solution {
 
         for(int i = 0; i < moves.length(); i++){
             move = moves.charAt(i);
-            switch(move):
-            {
+            switch(move){
                 case 'U':
                     uCount++;
                     break;
-                case 'U':
-                    uCount++;
+                case 'D':
+                    dCount++;
+                    break;
+                case 'L':
+                    lCount++;
+                    break;
+                case 'R':
+                    rCount++;
+                    break;
+                default:
                     break;
             }
-           if(move == 'U')
-           {
-               uCount++;
-           }
-           else if (move == 'D')
-           {
-               dCount++;
-           }
-           else if (move == 'R')
-           {
-               rCount++;
-           }           
-           else if (move == 'L')
-           {
-               lCount++;
-           }    
         }
+
         if(rCount == lCount && uCount == dCount)
         {
             atOrigin = true;
