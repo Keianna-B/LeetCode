@@ -13,7 +13,7 @@ class Solution {
                     y--;
                     break;
                 case 'L':
-                    y--;
+                    x--;
                     break;
                 case 'R':
                     x++;
