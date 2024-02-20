@@ -1,12 +1,11 @@
 class Solution {
     public double findMaxAverage(int[] nums, int k) {
-        double maxAverage;
-        int sum = 0;
+=       int sum = 0;
         for(int l=0; l < k; l++)
         {
             sum += nums[l];
         }
-        maxAverage = (double) sum/k;
+        double maxAverage = (double) sum/k;
        //left value being subtracted from sum
         int i = 0;
         //right value being added to sum
@@ -22,6 +21,5 @@ class Solution {
             j++;
         }
         return maxAverage;
-
     }
 }
