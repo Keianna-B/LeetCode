@@ -1,6 +1,6 @@
 class Solution {
     public double findMaxAverage(int[] nums, int k) {
-=       int sum = 0;
+        int sum = 0;
         for(int l=0; l < k; l++)
         {
             sum += nums[l];
@@ -21,5 +21,6 @@ class Solution {
             j++;
         }
         return maxAverage;
+
     }
 }
