@@ -23,9 +23,9 @@ class Solution {
         ListNode tailHead = reverseList(slow.next);
         slow.next = null;
 
-        ListNode cur = head;
-        ListNode curReverse = tailHead;
-
+        //ListNode cur = head;
+        //ListNode curReverse = tailHead;
+/*
         while(cur != null && curReverse != null){
             ListNode temp = cur.next;
             cur.next = curReverse;
@@ -33,9 +33,20 @@ class Solution {
             curReverse.next = temp;
             cur = temp;
             curReverse = tempReverse;
-        }
+        }*/
+        while(tailHead != null){
+            ListNode temp = head.next;
+            head.next = tailHead;
+            tailHead = temp;
+            head = head.next;
+        }   
 
     }
+    /*
+    public ListNode findMiddleNode(){
+
+    } */
+
     public ListNode reverseList(ListNode head) {
         if(head == null || head.next == null){
             return head;
