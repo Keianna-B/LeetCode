@@ -23,7 +23,7 @@ class Solution {
         ListNode tailHead = reverseList(slow.next);
         slow.next = null;
 
-        //ListNode cur = head;
+        ListNode cur = head;
         //ListNode curReverse = tailHead;
 /*
         while(cur != null && curReverse != null){
@@ -35,10 +35,10 @@ class Solution {
             curReverse = tempReverse;
         }*/
         while(tailHead != null){
-            ListNode temp = head.next;
-            head.next = tailHead;
+            ListNode temp = cur.next;
+            cur.next = tailHead;
             tailHead = temp;
-            head = head.next;
+            cur = cur.next;
         }   
 
     }
