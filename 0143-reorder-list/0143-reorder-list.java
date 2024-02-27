@@ -10,7 +10,9 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
-
+        if(head == null || head.next == null){
+            return;
+        }
         //ListNode reversed = tailHead;
         ListNode slow = head;
         ListNode fast= head;
@@ -24,7 +26,7 @@ class Solution {
         ListNode cur = head;
         ListNode curReverse = tailHead;
 
-        while(head != null && curReverse != null){
+        while(cur != null && curReverse != null){
             ListNode temp = cur.next;
             cur.next = curReverse;
             ListNode tempReverse = curReverse.next;
@@ -32,6 +34,7 @@ class Solution {
             cur = temp;
             curReverse = tempReverse;
         }
+
     }
     public ListNode reverseList(ListNode head) {
         if(head == null || head.next == null){
