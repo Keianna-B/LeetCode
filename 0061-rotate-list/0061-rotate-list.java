@@ -25,8 +25,9 @@ class Solution {
         
         for (int i = 0; i < length - k; i++) {
             tail = tail.next;
-            head = head.next;
+            //head = head.next;
         }
+        head = tail.next;
         tail.next = null;
             
         return head;
