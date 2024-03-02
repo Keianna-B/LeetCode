@@ -4,39 +4,48 @@ class Solution {
         {
             nums[i] *= nums[i];        
         }
-        return countingSort(nums);
+        return radixSort(nums, nums.length);
     }
 
-    public static int[] countingSort(int[] input){
-        int length = input.length;
+    public static int[] radixSort(int input[], int n){
         int maximum = 0;
-
-        for(int i = 0; i < length; i++)
+                
+        for(int i = 0; i < n; i++)
         {
             maximum = Math.max(maximum, input[i]);
         }
 
-        int[] count = new int[maximum+1];
-
-        for (int i = 0; i < length; i++) 
-        {
-            count[input[i]]++;
+        for(int exponent = 1; maximum/exponent > 0; exponent *= 10){
+            countSort(input, n, exponent);
         }
- 
-        for (int i = 1; i <= maximum; i++) 
+        return input;
+    }
+
+    public static void countSort(int[] input, int n, int exp){
+        int output[] = new int[n];
+        int i;
+        int count[] = new int[10];
+        Arrays.fill(count,0);
+
+        for(i=0; i < n; i++)
+        {
+            count[(input[i]/exp)%10]++;
+        }
+
+        for (i = 1; i < 10; i++)
         {
             count[i] += count[i - 1];
         }
-
-        int [] output = new int [length];
-
-        for (int i = length - 1; i >= 0; i--) 
-        {
-            output[count[input[i]] - 1] = input[i];
-            count[input[i]]--;
-        }
  
-        return output;
+        for (i = n - 1; i >= 0; i--) {
+            output[count[(input[i] / exp) % 10] - 1] = input[i];
+            count[(input[i] / exp) % 10]--;
+        }
+        for(i = 0; i < n; i++)
+        {
+            input[i] = output[i];
+        }
+        //return output;
     }
 
 }
