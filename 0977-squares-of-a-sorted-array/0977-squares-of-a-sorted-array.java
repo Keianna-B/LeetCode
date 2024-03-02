@@ -16,12 +16,12 @@ class Solution {
         }
 
         for(int exponent = 1; maximum/exponent > 0; exponent *= 10){
-            countSort(input, n, exponent);
+            input = countSort(input, n, exponent);
         }
         return input;
     }
 
-    public static void countSort(int[] input, int n, int exp){
+    public static int[] countSort(int[] input, int n, int exp){
         int output[] = new int[n];
         int i;
         int count[] = new int[10];
@@ -45,7 +45,7 @@ class Solution {
         {
             input[i] = output[i];
         }
-        //return output;
+        return output;
     }
 
 }
