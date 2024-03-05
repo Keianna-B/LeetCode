@@ -12,8 +12,7 @@ class Solution {
         }
         List<List<String>> answer = new ArrayList<>();
         answer.addAll(anagrams.values());
-
-
+        
         return answer;
     }
 }
