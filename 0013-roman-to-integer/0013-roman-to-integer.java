@@ -12,7 +12,7 @@ class Solution {
 
         int ans = 0, i = 0;
 
-        for(i = 0; i < s.length()-1; i++)
+        for(i = 0; i < s.length(); i++)
         {
             if (key.get(s.charAt(i)) < key.get(s.charAt(i+1)))
             {
@@ -24,6 +24,6 @@ class Solution {
             }
         }
         
-        return ans + key.get(s.charAt(i));
+        return ans;
     }
 }
