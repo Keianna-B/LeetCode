@@ -11,16 +11,16 @@ class Solution {
                 s.push(file);
             }
         }
-        String canonicalPath = "";
+        StringBuilder canonicalPath = new StringBuilder();
         if(s.empty() == true){
-            canonicalPath = "/";
+            canonicalPath.append("/");
         }
         else{
             for (String file:s){
-            canonicalPath += "/" + file;
+            canonicalPath.append("/").append(file);
         }
         }
         
-    return canonicalPath;
+    return canonicalPath.toString();
     }
 }
