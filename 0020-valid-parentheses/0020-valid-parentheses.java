@@ -3,7 +3,7 @@ class Solution {
         Stack<Character> stack = new Stack<Character>();
         for(char c : s.toCharArray())
         {
-            if(c == '(')
+            else if(c == '(')
             {
                 stack.push(')');
             }
@@ -15,7 +15,7 @@ class Solution {
             {
                 stack.push('}');
             }
-            else if(stack.isEmpty() || stack.pop() != c)
+            if(stack.isEmpty() || stack.pop() != c)
             {
                 return false;
             }
