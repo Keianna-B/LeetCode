@@ -1,10 +1,11 @@
 class MyCircularQueue {
-    int[] queue;
-    int front = 0, rear = 0,size = 0;
 
+    int queue[];
+    int front = 0, rear = 0,size = 0;
+    
     public MyCircularQueue(int k) {
         queue = new int[k];
-        Arrays.fill(queue,-1);
+        Arrays.fill(queue,-1);  
     }
     
     public boolean enQueue(int value) {
