@@ -17,20 +17,17 @@ class Solution {
     public boolean isValidBST(TreeNode root) {
                return  helper(root,null,null);
     }
-    public boolean helper(TreeNode node, Integer minVal, Integer maxVal){
+    public boolean helper(TreeNode node, TreeNode minimum, TreeNode maximum){
         if(node == null ){
             return true;
         }
-        if(maxVal!=null && node.val>=maxVal){
+        if(maximum!=null && node.val>=maximum.val){
             return false;
         }
 
-        if(minVal!=null && node.val<=minVal) {
+        if(minimum!=null && node.val<=minimum.val) {
             return false;
         }
-
-        boolean left = helper(node.left, minVal, node.val);
-        boolean right = helper(node.right, node.val, maxVal);
-        return left && right;
+        return helper(node.left, minimum, node) && helper(node.right, node, maximum);
     }
 }
