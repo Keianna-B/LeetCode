@@ -14,7 +14,7 @@ class Solution {
                         if(!visited[j] && isConnected[node][j] == 1)
                         {
                             visited[j] = true;
-                            queue.add(j);
+                            queue.offer(j);
                         }
                     }
                 }
