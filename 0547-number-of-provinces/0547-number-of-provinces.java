@@ -7,7 +7,7 @@ class Solution {
             if(!visited[i]){
                 provinces++;
                 visited[i] = true;
-                queue.add(i);
+                queue.offer(i);
                 while (!queue.isEmpty()) {
                     int node = queue.poll();
                     for(int j = 0; j < isConnected.length; j++){
