@@ -9,9 +9,9 @@ class Solution {
                 visited[i] = true;
                 queue.offer(i);
                 while (!queue.isEmpty()) {
-                    int node = queue.poll();
+                    int city = queue.poll();
                     for(int j = 0; j < isConnected.length; j++){
-                        if(!visited[j] && isConnected[node][j] == 1)
+                        if(!visited[j] && isConnected[city][j] == 1)
                         {
                             visited[j] = true;
                             queue.offer(j);
