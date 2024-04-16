@@ -1,8 +1,5 @@
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        /*if(numCourse == 1){
-            return 0;
-        }*/
         List<List<Integer>> adj = new ArrayList<>();
         for(int i = 0; i < numCourses; i++){
             adj.add(new ArrayList<>());
@@ -35,7 +32,11 @@ class Solution {
 
             }
         }
-        //int[] courseSchedule = new ();
-        return courseSchedule;
+        if(courseOrder == numCourses){
+            return courseSchedule;
+        }
+        else{
+            return new int[0];
+        }
     }
 }
