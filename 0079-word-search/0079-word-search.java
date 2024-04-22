@@ -15,8 +15,8 @@ public class Solution {
         return false;
     }
     
-    private boolean backtrack(char[][] board, String word, int row, int col, int index) {
-        if (index == word.length()) {
+    private boolean backtrack(char[][] board, char[] word, int row, int col, int index) {
+        if (index == word.length) {
             return true;
         }
         if(row < 0 || col < 0 || row >= board.length | col >= board[0].length || board[row][col] != word[index] || board[row][col] == ' ' ) {
@@ -30,4 +30,5 @@ public class Solution {
         boolean left = backtrack(board, word, row, col - 1, index + 1);
         board[row][col] = curr;
         return up || down || right || left;
+    }
 }
