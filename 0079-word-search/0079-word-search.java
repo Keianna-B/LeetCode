@@ -2,41 +2,32 @@ public class Solution {
     public boolean exist(char[][] board, String word) {
         int m = board.length;
         int n = board[0].length;
-
+        char[] wordArr = word.toCharArray();
         boolean[][] visited = new boolean[m][n];
         boolean result = false;
-        
-        for (int i = 0; i < m; i++) {
+         for(int i = 0 ; i < m ; i++) {
             for (int j = 0; j < n; j++) {
-                if (board[i][j] == word.charAt(0)) {
-                    result = backtrack(board, word, visited, i, j, 0);
-                    if (result) return true;
+                if(backtrack(board,wordArr,i,j,0)) {
+                    return true;
                 }
             }
         }
-        
         return false;
     }
     
-    private boolean backtrack(char[][] board, String word, boolean[][] visited, int i, int j, int index) {
+    private boolean backtrack(char[][] board, String word, int row, int col, int index) {
         if (index == word.length()) {
             return true;
         }
-        
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j] || board[i][j] != word.charAt(index)) {
+        if(row < 0 || col < 0 || row >= board.length | col >= board[0].length || board[row][col] != word[index] || board[row][col] == ' ' ) {
             return false;
         }
-        
-        visited[i][j] = true;
-        
-        if (backtrack(board, word, visited, i + 1, j, index + 1) ||
-            backtrack(board, word, visited, i - 1, j, index + 1) ||
-            backtrack(board, word, visited, i, j + 1, index + 1) ||
-            backtrack(board, word, visited, i, j - 1, index + 1)) {
-            return true;
-        }
-        
-        visited[i][j] = false;
-        return false;
-    }
+        char curr = board[row][col];
+        board[row][col] = ' ';
+        boolean up = backtrack(board, word, row + 1, col, index + 1);
+        boolean down = backtrack(board, word, row - 1, col, index + 1);
+        boolean right = backtrack(board, word, row, col + 1 , index + 1);
+        boolean left = backtrack(board, word, row, col - 1, index + 1);
+        board[row][col] = curr;
+        return up || down || right || left;
 }
