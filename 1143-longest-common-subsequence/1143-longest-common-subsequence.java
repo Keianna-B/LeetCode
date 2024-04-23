@@ -13,12 +13,12 @@ class Solution {
         }
 
         if(t1.charAt(i) == t2.charAt(j)){
-            return dp[i][j] = 1 + helper(t1, t2, i+1, j+1);
-            //return dp[i][j];
+            dp[i][j] = 1 + helper(t1, t2, i+1, j+1);
+            return dp[i][j];
         }
         else{
-            return dp[i][j] = Math.max(helper(t1, t2,i+1, j), helper(t1,t2, i, j+1));
-            //return dp[i][j];
+            dp[i][j] = Math.max(helper(t1, t2,i+1, j), helper(t1,t2, i, j+1));
+            return dp[i][j];
         }
     }
 }
